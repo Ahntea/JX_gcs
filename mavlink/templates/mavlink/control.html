@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drone Control</h1>
+  <form method="post" action="{% url 'drone_control:control' %}">
+    {% csrf_token %}
+    <label for="x">X:</label>
+    <input type="number" name="x" step="0.1" value="0.0" required>
+    <label for="y">Y:</label>
+    <input type="number" name="y" step="0.1" value="0.0" required>
+    <label for="z">Z:</label>
+    <input type="number" name="z" step="0.1" value="0.0" required>
+    <label for="vx">VX:</label>
+    <input type="number" name="vx" step="0.1" value="0.0" required>
+    <label for="vy">VY:</label>
+    <input type="number" name="vy" step="0.1" value="0.0" required>
+    <label for="vz">VZ:</label>
+    <input type="number" name="vz" step="0.1" value="0.0" required>
+    <input type="submit" value="Send Commands">
+  </form>
+{% endblock %}
